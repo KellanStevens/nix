@@ -18,6 +18,7 @@
   # User account configuration
   users.users.kellan = {
     isNormalUser = true;
+    shell = pkgs.zsh;
     description = "Kellan Stevens";
     extraGroups = [
       "networkmanager"
