@@ -53,7 +53,7 @@
               style = "plain";
               foreground = "p:blue";
               background = "transparent";
-              template = "{{ .Path }}";
+              template = "{{ .HostName }} {{ .Path }}";
               options = {
                 style = "full";
               };
