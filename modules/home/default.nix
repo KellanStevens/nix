@@ -9,6 +9,10 @@
     firefox
     git
     vim
+    tmux
+    eza
+    fzf
+    oh-my-posh
     stremio-linux-shell
     fastfetch
     wget
