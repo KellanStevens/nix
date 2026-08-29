@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
   imports = [
@@ -7,21 +7,23 @@
   ];
 
   home.username = "kellan";
-  home.homeDirectory = "/home/kellan";
+  home.homeDirectory =
+    if pkgs.stdenv.isDarwin then "/Users/kellan" else "/home/kellan";
 
-  # User packages
+  # Cross-platform packages
   home.packages = with pkgs; [
-    firefox
     git
     vim
     tmux
     eza
     fzf
     oh-my-posh
-    stremio-linux-shell
     fastfetch
     wget
     nixfmt
+  ] ++ lib.optionals pkgs.stdenv.isLinux [
+    firefox
+    stremio-linux-shell
   ];
 
   # Interactive Zsh shell configuration
