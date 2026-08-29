@@ -5,10 +5,10 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -16,8 +16,20 @@
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
   networking.hostName = "nixos"; # Define your hostname.
-  networking.firewall.allowedTCPPorts = [ 80 443 81 7000 7001 7100 5900 ];
-  networking.firewall.allowedUDPPorts = [ 6000 6001 7011 ];
+  networking.firewall.allowedTCPPorts = [
+    80
+    443
+    81
+    7000
+    7001
+    7100
+    5900
+  ];
+  networking.firewall.allowedUDPPorts = [
+    6000
+    6001
+    7011
+  ];
 
   hardware.graphics.enable = true;
 
@@ -45,23 +57,20 @@
     };
   };
 
-
   virtualisation.docker.enable = true;
 
   virtualisation.oci-containers.containers."nginx-proxy-manager" = {
     image = "jc21/nginx-proxy-manager:latest";
     ports = [
-      "80:80"   # Public HTTP
-      "443:443" # Public HTTPS
-      "81:81"   # Admin Web UI
+      "80:80"
+      "443:443"
+      "81:81"
     ];
     volumes = [
-      # Persist data and SSL certificates across reboots
       "/var/lib/npm/data:/data"
       "/var/lib/npm/letsencrypt:/etc/letsencrypt"
     ];
-  };	
-
+  };
 
   # Set your time zone.
   time.timeZone = "Africa/Johannesburg";
@@ -110,7 +119,7 @@
     enable = true;
     nssmdns4 = true;
     openFirewall = true;
-    
+
     publish = {
       enable = true;
       userServices = true;
@@ -124,8 +133,13 @@
   users.users.kellan = {
     isNormalUser = true;
     description = "Kellan Stevens";
-    extraGroups = [ "networkmanager" "wheel" "video" "render" ];
-    
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "video"
+      "render"
+    ];
+
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICGaZl4aI8q4/LSdvABWVesFV1GVaPlWarq1Bl2KbwKl"
     ];
@@ -137,6 +151,7 @@
       stremio-linux-shell
       fastfetch
       wget
+      nixfmt-rfc-style
     ];
   };
 
@@ -145,8 +160,8 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
+    #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    #  wget
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -164,7 +179,7 @@
     enable = true;
     settings = {
       PasswordAuthentication = false;
-      KbdInteractiveAuthentication = false;    
+      KbdInteractiveAuthentication = false;
       PermitRootLogin = "no";
     };
   };
@@ -175,7 +190,7 @@
   systemd.targets.hibernate.enable = false;
   systemd.targets.hybrid-sleep.enable = false;
 
-  networking.networkmanager.wifi.powersave = false;  
+  networking.networkmanager.wifi.powersave = false;
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
@@ -183,5 +198,8 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "26.05"; # Did you read the comment?
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 }
