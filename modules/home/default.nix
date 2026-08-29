@@ -1,6 +1,10 @@
 { pkgs, ... }:
 
 {
+  imports = [
+    ./aliases.nix
+  ];
+
   home.username = "kellan";
   home.homeDirectory = "/home/kellan";
 
