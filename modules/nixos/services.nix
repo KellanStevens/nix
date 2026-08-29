@@ -4,19 +4,22 @@
   # Nix LD support
   programs.nix-ld.enable = true;
 
-  # Docker & OCI Containers
+  # Docker & Container Services
   virtualisation.docker.enable = true;
-  virtualisation.oci-containers.containers."nginx-proxy-manager" = {
-    image = "jc21/nginx-proxy-manager:latest";
-    ports = [
-      "80:80"
-      "443:443"
-      "81:81"
-    ];
-    volumes = [
-      "/var/lib/npm/data:/data"
-      "/var/lib/npm/letsencrypt:/etc/letsencrypt"
-    ];
+  virtualisation.oci-containers = {
+    backend = "docker";
+    containers."nginx-proxy-manager" = {
+      image = "jc21/nginx-proxy-manager:latest";
+      ports = [
+        "80:80"
+        "443:443"
+        "81:81"
+      ];
+      volumes = [
+        "/var/lib/npm/data:/data"
+        "/var/lib/npm/letsencrypt:/etc/letsencrypt"
+      ];
+    };
   };
 
   # UxPlay AirPlay Receiver Service
