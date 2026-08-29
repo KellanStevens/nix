@@ -136,6 +136,7 @@
       vim
       stremio-linux-shell
       fastfetch
+      wget
     ];
   };
 
