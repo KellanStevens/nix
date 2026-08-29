@@ -25,6 +25,15 @@
         };
         websecure = {
           address = ":443";
+          http.tls = {
+            certResolver = "cloudflare";
+            domains = [
+              {
+                main = "local.kellanstevens.com";
+                sans = [ "*.local.kellanstevens.com" ];
+              }
+            ];
+          };
         };
       };
 
@@ -49,15 +58,7 @@
             rule = "Host(`hassio.local.kellanstevens.com`)";
             entryPoints = [ "websecure" ];
             service = "hassio-service";
-            tls = {
-              certResolver = "cloudflare";
-              domains = [
-                {
-                  main = "local.kellanstevens.com";
-                  sans = [ "*.local.kellanstevens.com" ];
-                }
-              ];
-            };
+            tls = {};
           };
         };
 
