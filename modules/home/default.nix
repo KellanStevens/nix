@@ -3,6 +3,7 @@
 {
   imports = [
     ./aliases.nix
+    ./oh-my-posh.nix
   ];
 
   home.username = "kellan";
