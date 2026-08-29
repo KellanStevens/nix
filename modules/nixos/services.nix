@@ -4,21 +4,46 @@
   # Nix LD support
   programs.nix-ld.enable = true;
 
-  # Docker & Container Services
+  # Docker Engine
   virtualisation.docker.enable = true;
-  virtualisation.oci-containers = {
-    backend = "docker";
-    containers."nginx-proxy-manager" = {
-      image = "jc21/nginx-proxy-manager:latest";
-      ports = [
-        "80:80"
-        "443:443"
-        "81:81"
-      ];
-      volumes = [
-        "/var/lib/npm/data:/data"
-        "/var/lib/npm/letsencrypt:/etc/letsencrypt"
-      ];
+
+  # Traefik Reverse Proxy
+  services.traefik = {
+    enable = true;
+
+    staticConfigOptions = {
+      entryPoints = {
+        web = {
+          address = ":80";
+        };
+        websecure = {
+          address = ":443";
+        };
+      };
+    };
+
+    dynamicConfigOptions = {
+      http = {
+        routers = {
+          hassio = {
+            rule = "Host(`hassio.local.kellanstevens.com`)";
+            entryPoints = [ "web" "websecure" ];
+            service = "hassio-service";
+          };
+        };
+
+        services = {
+          hassio-service = {
+            loadBalancer = {
+              servers = [
+                {
+                  url = "http://127.0.0.1:8123";
+                }
+              ];
+            };
+          };
+        };
+      };
     };
   };
 
