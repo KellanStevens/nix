@@ -1,0 +1,36 @@
+{ ... }:
+
+{
+  homebrew.casks = [
+    "1password"
+    "antigravity"
+    "antigravity-cli"
+    "cmux"
+    "cursor"
+    "cyberduck"
+    "docker-desktop"
+    "expo-orbit"
+    "font-hack-nerd-font"
+    "font-jetbrains-mono-nerd-font"
+    "github"
+    "helium-browser"
+    "licecap"
+    "lm-studio"
+    "localsend"
+    "mac-mouse-fix"
+    "maccy"
+    "monitorcontrol"
+    "obs"
+    "postman"
+    "rectangle"
+    "sequel-ace"
+    "signal"
+    "spotify"
+    "tableplus"
+    "tailscale-app"
+    "utm"
+    "visual-studio-code"
+    "vlc"
+    "warp"
+  ];
+}

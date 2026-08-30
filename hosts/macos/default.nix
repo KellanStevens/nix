@@ -1,6 +1,10 @@
 { pkgs, ... }:
 
 {
+  imports = [
+    ../../modules/macos/homebrew
+  ];
+
   networking.hostName = "TL-FW21FX96ND";
 
   nix.enable = false;
