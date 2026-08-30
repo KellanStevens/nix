@@ -17,6 +17,10 @@
     };
   };
   services.desktopManager.gnome.enable = true;
+  services.displayManager.autoLogin = {
+    enable = true;
+    user = "kellan";
+  };
 
   # Helium browser
   programs.helium.enable = true;
