@@ -8,7 +8,7 @@
   # Graphics & Display
   hardware.graphics.enable = true;
 
-  # Graphical login & Pantheon Desktop
+  # Graphical login & GNOME Desktop
   services.xserver = {
     enable = true;
     xkb = {
@@ -16,8 +16,7 @@
       variant = "";
     };
   };
-  programs.regreet.enable = true;
-  services.desktopManager.pantheon.enable = true;
+  services.desktopManager.gnome.enable = true;
 
   # Helium browser
   programs.helium.enable = true;
