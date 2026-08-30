@@ -16,8 +16,10 @@
   networking.hostName = "nixos";
 
   # User account configuration
-  users.users.kellan = {
+  users.users."kellan.stevens" = {
     isNormalUser = true;
+    uid = 1000;
+    home = "/home/kellan.stevens";
     shell = pkgs.zsh;
     description = "Kellan Stevens";
     extraGroups = [
