@@ -8,15 +8,15 @@
   # Graphics & Display
   hardware.graphics.enable = true;
 
-  # X11 & Pantheon Desktop
+  # Graphical login & Pantheon Desktop
   services.xserver = {
     enable = true;
-    displayManager.lightdm.enable = true;
     xkb = {
       layout = "za";
       variant = "";
     };
   };
+  programs.regreet.enable = true;
   services.desktopManager.pantheon.enable = true;
 
   # Helium browser
