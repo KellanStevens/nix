@@ -5,6 +5,7 @@
     ./aliases.nix
     ./macos/aliases.nix
     ./nixos/aliases.nix
+    ./nixos/desktop.nix
     ./oh-my-posh.nix
   ];
 
