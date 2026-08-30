@@ -1,10 +1,23 @@
 { pkgs, ... }:
 
 {
-  # Starter configuration template for macOS (nix-darwin)
-  # Host-specific macOS configurations can be added here.
+  networking.hostName = "TL-FW21FX96ND";
 
-  # Example nix-darwin settings:
-  # system.stateVersion = 5;
-  # services.nix-daemon.enable = true;
+  nix.enable = false;
+  nixpkgs = {
+    hostPlatform = "aarch64-darwin";
+    config.allowUnfree = true;
+  };
+
+  programs.zsh.enable = true;
+
+  system = {
+    primaryUser = "kellan.stevens";
+    stateVersion = 7;
+  };
+
+  users.users."kellan.stevens" = {
+    home = "/Users/kellan.stevens";
+    shell = pkgs.zsh;
+  };
 }
