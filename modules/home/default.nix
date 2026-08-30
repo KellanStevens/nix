@@ -38,6 +38,11 @@
     '';
   };
 
+  programs.direnv = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
   home.stateVersion = "26.05";
   home.enableNixpkgsReleaseCheck = false;
 }
