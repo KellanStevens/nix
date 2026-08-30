@@ -8,6 +8,10 @@
 
   homebrew = {
     enable = true;
-    onActivation.cleanup = "uninstall";
+    onActivation = {
+      autoUpdate = true;
+      upgrade = true;
+      cleanup = "uninstall";
+    };
   };
 }

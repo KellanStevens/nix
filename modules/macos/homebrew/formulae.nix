@@ -29,7 +29,6 @@
       "eza"
       "fastfetch"
       "fzf"
-      "gemini-cli"
       "gh"
       "git"
       "hashicorp/tap/terraform"
