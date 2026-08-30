@@ -7,8 +7,6 @@
     "antigravity-cli"
     "cmux"
     "cursor"
-    "cyberduck"
-    "docker-desktop"
     "expo-orbit"
     "font-hack-nerd-font"
     "font-jetbrains-mono-nerd-font"
@@ -25,12 +23,10 @@
     "rectangle"
     "sequel-ace"
     "signal"
-    "spotify"
     "tableplus"
     "tailscale-app"
     "utm"
     "visual-studio-code"
     "vlc"
-    "warp"
   ];
 }
