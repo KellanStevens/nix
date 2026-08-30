@@ -22,6 +22,14 @@
     user = "kellan.stevens";
   };
 
+  # Keep the display's idle blanking separate from system sleep.
+  systemd.sleep.settings.Sleep = {
+    AllowSuspend = false;
+    AllowHibernation = false;
+    AllowHybridSleep = false;
+    AllowSuspendThenHibernate = false;
+  };
+
   # Helium browser
   programs.helium.enable = true;
 

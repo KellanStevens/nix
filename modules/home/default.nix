@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   imports = [
@@ -15,21 +15,17 @@
     if pkgs.stdenv.isDarwin then "/Users/kellan.stevens" else "/home/kellan.stevens";
 
   # User packages
-  home.packages =
-    (with pkgs; [
-      git
-      vim
-      tmux
-      eza
-      fzf
-      oh-my-posh
-      fastfetch
-      wget
-      nixfmt
-    ])
-    ++ lib.optionals pkgs.stdenv.isLinux [
-      pkgs.stremio-linux-shell
-    ];
+  home.packages = with pkgs; [
+    git
+    vim
+    tmux
+    eza
+    fzf
+    oh-my-posh
+    fastfetch
+    wget
+    nixfmt
+  ];
 
   # Interactive Zsh shell configuration
   programs.zsh = {
