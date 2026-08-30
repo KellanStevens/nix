@@ -6,8 +6,8 @@
     ./oh-my-posh.nix
   ];
 
-  home.username = "kellan";
-  home.homeDirectory = "/home/kellan";
+  home.username = "kellan.stevens";
+  home.homeDirectory = "/home/kellan.stevens";
 
   # User packages
   home.packages = with pkgs; [

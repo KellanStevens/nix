@@ -19,7 +19,7 @@
   services.desktopManager.gnome.enable = true;
   services.displayManager.autoLogin = {
     enable = true;
-    user = "kellan";
+    user = "kellan.stevens";
   };
 
   # Helium browser
