@@ -3,6 +3,8 @@
 {
   imports = [
     ./aliases.nix
+    ./macos/aliases.nix
+    ./nixos/aliases.nix
     ./oh-my-posh.nix
   ];
 

@@ -49,7 +49,7 @@
           system = "aarch64-darwin";
           specialArgs = { inherit inputs; };
           modules = [
-            ./hosts/macbook
+            ./hosts/macos
             home-manager.darwinModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
