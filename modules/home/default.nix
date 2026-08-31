@@ -16,6 +16,7 @@
 
   # User packages
   home.packages = with pkgs; [
+    claude-code
     git
     vim
     tmux

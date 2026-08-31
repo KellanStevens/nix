@@ -27,6 +27,7 @@
     "tailscale-app"
     "utm"
     "visual-studio-code"
+    "unifi-identity-endpoint"
     "vlc"
   ];
 }

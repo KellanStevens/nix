@@ -39,6 +39,7 @@
       "lazygit"
       "mago"
       "mysql@8.4"
+      "npm"
       "neovim"
       "oven-sh/bun/bun"
       "php@8.2"
