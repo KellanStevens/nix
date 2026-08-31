@@ -7,6 +7,7 @@
     "antigravity-cli"
     "cmux"
     "cursor"
+    "claude"
     "expo-orbit"
     "font-hack-nerd-font"
     "font-jetbrains-mono-nerd-font"
