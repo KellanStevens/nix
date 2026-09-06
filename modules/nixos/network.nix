@@ -4,6 +4,8 @@
   networking.networkmanager.enable = true;
   networking.networkmanager.wifi.powersave = false;
 
+  networking.nftables.enable = true;
+
   networking.firewall = {
     enable = true;
     allowedTCPPorts = [
