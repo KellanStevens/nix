@@ -7,6 +7,7 @@
     ./macos/zsh.nix
     ./nixos/aliases.nix
     ./nixos/desktop.nix
+    ./nixos/waydroid.nix
     ./oh-my-posh.nix
   ];
 
