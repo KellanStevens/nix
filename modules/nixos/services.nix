@@ -8,5 +8,6 @@
     ./services/ssh.nix
     ./services/traefik.nix
     ./services/uxplay.nix
+    ./services/waydroid.nix
   ];
 }
