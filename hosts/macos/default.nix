@@ -20,6 +20,35 @@
   system = {
     primaryUser = "kellan.stevens";
     stateVersion = 7;
+
+    defaults = {
+      dock = {
+        autohide = true;
+        autohide-delay = 0.0;
+        autohide-time-modifier = 0.0;
+        mru-spaces = false;
+        show-recents = false;
+        static-only = true;
+        tilesize = 74;
+      };
+
+      finder = {
+        AppleShowAllFiles = true;
+        ShowPathbar = true;
+        _FXEnableColumnAutoSizing = true;
+      };
+
+      trackpad = {
+        TrackpadThreeFingerDrag = true;
+      };
+
+      NSGlobalDomain = {
+        AppleKeyboardUIMode = 2;
+        ApplePressAndHoldEnabled = false;
+      };
+
+      menuExtraClock.ShowSeconds = true;
+    };
   };
 
   users.users."kellan.stevens" = {
