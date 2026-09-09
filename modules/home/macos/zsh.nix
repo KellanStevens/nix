@@ -3,7 +3,7 @@
 {
   programs.zsh.initContent = lib.mkIf pkgs.stdenv.isDarwin (
     lib.mkAfter ''
-      export PATH="$HOME/.local/bin:$PATH"
+      export PATH="/opt/homebrew/opt/rustup/bin:$HOME/.local/bin:$PATH"
 
       bindkey -e
       bindkey '\e\e[C' forward-word
