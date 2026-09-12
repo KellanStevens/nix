@@ -3,6 +3,7 @@
 {
   imports = [
     ../../modules/macos/homebrew
+    ../../modules/tailscale.nix
   ];
 
   networking.hostName = "TL-FW21FX96ND";
