@@ -29,6 +29,9 @@
     nixfmt
   ];
 
+  # Suppress "Last login" message in new terminals
+  home.file.".hushlogin".text = "";
+
   # Interactive Zsh shell configuration
   programs.zsh = {
     enable = true;
