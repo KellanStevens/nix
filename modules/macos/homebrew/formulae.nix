@@ -6,7 +6,6 @@
       "atlassian/acli"
       "hashicorp/tap"
       "jandedobbeleer/oh-my-posh"
-      "jundot/omlx"
       "oven-sh/bun"
     ];
 
@@ -30,7 +29,6 @@
       "git"
       "hashicorp/tap/terraform"
       "jandedobbeleer/oh-my-posh/oh-my-posh"
-      "jundot/omlx/omlx"
       "kubernetes-cli"
       "lazydocker"
       "lazygit"

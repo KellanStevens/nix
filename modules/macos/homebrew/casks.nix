@@ -20,5 +20,6 @@
     "tailscale-app"
     "visual-studio-code"
     "unifi-identity-endpoint"
+    "phpstorm"
   ];
 }
