@@ -31,7 +31,6 @@
       "jandedobbeleer/oh-my-posh/oh-my-posh"
       "kubernetes-cli"
       "lazydocker"
-      "lazygit"
       "mysql@8.4"
       "npm"
       "neovim"

@@ -23,6 +23,7 @@
     tmux
     eza
     fzf
+    lazygit
     oh-my-posh
     fastfetch
     wget
