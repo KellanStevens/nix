@@ -5,6 +5,7 @@
     ./hardware-configuration.nix
     ../../modules/core
     ../../modules/nixos
+    ../../modules/tailscale.nix
   ];
 
   # Bootloader configuration
