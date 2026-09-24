@@ -1,7 +1,7 @@
 { lib, pkgs, ... }:
 
 {
-  home.shellAliases = lib.mkIf pkgs.stdenv.isDarwin {
+  home.shellAliases = lib.mkIf pkgs.stdenv.hostPlatform.isDarwin {
     nix-rebuild = "sudo darwin-rebuild switch --flake ~/nix#TL-FW21FX96ND";
     brwup = "brew update -v && brew upgrade -v -g";
     sail = "[ -f sail ] && sh sail || sh vendor/bin/sail";

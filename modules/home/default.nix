@@ -13,7 +13,7 @@
 
   home.username = "kellan.stevens";
   home.homeDirectory =
-    if pkgs.stdenv.isDarwin then "/Users/kellan.stevens" else "/home/kellan.stevens";
+    if pkgs.stdenv.hostPlatform.isDarwin then "/Users/kellan.stevens" else "/home/kellan.stevens";
 
   # User packages
   home.packages = with pkgs; [

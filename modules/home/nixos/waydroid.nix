@@ -6,7 +6,7 @@
   # session (needed for Android app windows) as soon as the graphical
   # session is available, so it's ready without running `waydroid session
   # start` by hand.
-  systemd.user.services.waydroid-session = lib.mkIf pkgs.stdenv.isLinux {
+  systemd.user.services.waydroid-session = lib.mkIf pkgs.stdenv.hostPlatform.isLinux {
     Unit = {
       Description = "Waydroid session";
       After = [ "graphical-session.target" ];
