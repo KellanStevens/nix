@@ -28,6 +28,7 @@
     fastfetch
     wget
     nixfmt
+    localsend
   ];
 
   # Suppress "Last login" message in new terminals
