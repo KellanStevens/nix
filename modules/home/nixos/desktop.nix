@@ -4,6 +4,7 @@
   home.packages = [
     pkgs.vscode
     pkgs.ulauncher
+    pkgs.github-desktop
   ];
 
   # Spotlight-style app launcher, toggled with Super+Space via the GNOME
