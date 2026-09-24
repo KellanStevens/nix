@@ -1,7 +1,7 @@
 { lib, pkgs, ... }:
 
 {
-  home.packages = [
+  home.packages = lib.mkIf pkgs.stdenv.isLinux [
     pkgs.vscode
     pkgs.ulauncher
     pkgs.github-desktop
@@ -9,7 +9,7 @@
 
   # Spotlight-style app launcher, toggled with Super+Space via the GNOME
   # keybinding below (Ulauncher's own hotkey grab doesn't work under Wayland).
-  systemd.user.services.ulauncher = {
+  systemd.user.services.ulauncher = lib.mkIf pkgs.stdenv.isLinux {
     Unit = {
       Description = "Ulauncher application launcher";
       After = [ "graphical-session.target" ];
