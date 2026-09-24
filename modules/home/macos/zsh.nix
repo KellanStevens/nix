@@ -1,7 +1,7 @@
 { lib, pkgs, ... }:
 
 {
-  programs.zsh.initContent = lib.mkIf pkgs.stdenv.isDarwin (
+  programs.zsh.initContent = lib.mkIf pkgs.stdenv.hostPlatform.isDarwin (
     lib.mkAfter ''
       export PATH="/opt/homebrew/opt/rustup/bin:$HOME/.local/bin:$PATH"
 
