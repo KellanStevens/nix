@@ -2,7 +2,7 @@
   description = "Kellan's Multi-Host & Cross-Platform Flake Config";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 
     home-manager = {
       url = "github:nix-community/home-manager/release-26.05";
