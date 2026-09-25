@@ -15,10 +15,7 @@
     "monitorcontrol"
     "postman"
     "rectangle"
-    "sequel-ace"
     "tableplus"
-    "visual-studio-code"
-    "unifi-identity-endpoint"
     "phpstorm"
   ];
 }
