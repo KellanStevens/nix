@@ -17,5 +17,6 @@
     "rectangle"
     "tableplus"
     "phpstorm"
+    "zed"
   ];
 }

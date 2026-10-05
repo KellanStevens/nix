@@ -36,6 +36,7 @@
       "neovim"
       "oven-sh/bun/bun"
       "php@8.2"
+      "pup"
       "rabbitmq-c"
       "ripgrep"
       "rust"
