@@ -30,7 +30,7 @@
         "narHash": "sha256-CB/ZmtlGbdqHZV8yBBVb4kjyDBlZkocMDAbJgy/L2QU=",
         "owner": "oxcl",
         "repo": "nix-flake-helium-browser",
-        "rev": "7d7117d1154f9837913ae6216a25ebed96536478",
+        "rev": "31b2af977177d347db89d69fac4fe5c44b852007",
         "type": "github"
       },
       "original": {
@@ -76,6 +76,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-unifi-endpoint": {
+      "locked": {
+        "lastModified": 1790708447,
+        "narHash": "sha256-PDgTDAheSmm2a5+LyRedrU/TNMvHVX3xYrHLRIcr6bo=",
+        "owner": "KellanStevens",
+        "repo": "nixpkgs",
+        "rev": "b8797e1bba950bd2c05fe39d0edb0a305ded7f93",
+        "type": "github"
+      },
+      "original": {
+        "owner": "KellanStevens",
+        "ref": "unifi-endpoint",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs_2": {
       "locked": {
         "lastModified": 1790178388,
@@ -97,7 +113,8 @@
         "darwin": "darwin",
         "helium": "helium",
         "home-manager": "home-manager",
-        "nixpkgs": "nixpkgs_2"
+        "nixpkgs": "nixpkgs_2",
+        "nixpkgs-unifi-endpoint": "nixpkgs-unifi-endpoint"
       }
     }
   },
