@@ -23,6 +23,9 @@
     home = "/home/kellan.stevens";
     shell = pkgs.zsh;
     description = "Kellan Stevens";
+    # Start this user's systemd instance at boot so the vnc-plasma service runs
+    # without anyone logging in at the console.
+    linger = true;
     extraGroups = [
       "networkmanager"
       "wheel"
