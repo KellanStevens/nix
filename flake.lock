@@ -26,8 +26,8 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1789214328,
-        "narHash": "sha256-ldHrGfwWiL8DwnP07DsqgGpppIPdXg/rF/FjDEXMNvI=",
+        "lastModified": 1789820247,
+        "narHash": "sha256-CB/ZmtlGbdqHZV8yBBVb4kjyDBlZkocMDAbJgy/L2QU=",
         "owner": "oxcl",
         "repo": "nix-flake-helium-browser",
         "rev": "7d7117d1154f9837913ae6216a25ebed96536478",
