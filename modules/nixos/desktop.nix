@@ -8,6 +8,12 @@
   # Graphics & Display
   hardware.graphics.enable = true;
 
+  # Apple ISO keyboards otherwise have the ` ~ key and the key beside left Shift
+  # swapped by the hid_apple driver.
+  boot.extraModprobeConfig = ''
+    options hid_apple iso_layout=0
+  '';
+
   # Graphical login & GNOME Desktop
   services.xserver = {
     enable = true;
