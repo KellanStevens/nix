@@ -21,6 +21,7 @@
     git
     vim
     tmux
+    bat
     eza
     fzf
     lazygit
