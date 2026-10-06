@@ -26,8 +26,11 @@
   services.desktopManager.plasma6.enable = true;
   services.displayManager.defaultSession = "plasma";
 
-  # Shares the live Plasma session over VNC (port 5900) for macOS Screen Sharing.
-  environment.systemPackages = [ pkgs.kdePackages.krfb ];
+  # VNC for macOS Screen Sharing is a user service in modules/home/nixos/desktop.nix
+  # (port 5900, opened in network.nix).
+
+  # KDE's native VNC/RDP client.
+  environment.systemPackages = [ pkgs.kdePackages.krdc ];
   services.displayManager.autoLogin = {
     enable = true;
     user = "kellan.stevens";
