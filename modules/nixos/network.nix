@@ -12,16 +12,10 @@
       80
       443
       81
-      7000
-      7001
-      7100
       5900
       53317 # LocalSend
     ];
     allowedUDPPorts = [
-      6000
-      6001
-      7011
       53317 # LocalSend discovery
     ];
   };
