@@ -14,15 +14,18 @@
     options hid_apple iso_layout=0
   '';
 
-  # Graphical login & GNOME Desktop
-  services.xserver = {
-    enable = true;
-    xkb = {
-      layout = "za";
-      variant = "";
-    };
+  # Graphical login & KDE Plasma (Wayland)
+  services.xserver.xkb = {
+    layout = "za";
+    variant = "";
   };
-  services.desktopManager.gnome.enable = true;
+  services.displayManager.sddm = {
+    enable = true;
+    wayland.enable = true;
+  };
+  services.desktopManager.plasma6.enable = true;
+  services.displayManager.defaultSession = "plasma";
+
   services.displayManager.autoLogin = {
     enable = true;
     user = "kellan.stevens";
