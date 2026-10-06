@@ -22,7 +22,7 @@
         export XDG_SESSION_TYPE=x11 XDG_CURRENT_DESKTOP=KDE KDE_FULL_SESSION=true
         unset WAYLAND_DISPLAY DISPLAY
         ${pkgs.tigervnc}/bin/Xvnc :10 -rfbport 5900 -rfbauth "$HOME/.vnc/passwd" \
-          -SecurityTypes VncAuth -geometry 1920x1080 -depth 24 -AlwaysShared &
+          -SecurityTypes VncAuth -geometry 1920x1200 -depth 24 -AlwaysShared &
         xvnc=$!
         trap 'kill $xvnc' EXIT
         sleep 2
