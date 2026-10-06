@@ -26,6 +26,8 @@
   services.desktopManager.plasma6.enable = true;
   services.displayManager.defaultSession = "plasma";
 
+  # Shares the live Plasma session over VNC (port 5900) for macOS Screen Sharing.
+  environment.systemPackages = [ pkgs.kdePackages.krfb ];
   services.displayManager.autoLogin = {
     enable = true;
     user = "kellan.stevens";
