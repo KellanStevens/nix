@@ -7,10 +7,8 @@
   ];
 
   # Headless Plasma X11 session served over VNC for macOS Screen Sharing
-  # (vnc://<host>:5900). This is a second session alongside the Wayland one on the
-  # console, not a mirror of it: krfb can't serve the Wayland session unattended
-  # because the screen-capture portal needs approval at the physical screen after
-  # every boot. Create the password once with:
+  # (vnc://<host>:5900). The machine has no screen or console session, so this is
+  # the only desktop. Create the password once with:
   #   mkdir -p ~/.vnc && vncpasswd -f > ~/.vnc/passwd && chmod 600 ~/.vnc/passwd
   systemd.user.services.vnc-plasma = lib.mkIf pkgs.stdenv.hostPlatform.isLinux {
     Unit = {

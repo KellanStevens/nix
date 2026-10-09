@@ -8,35 +8,19 @@
   # Graphics & Display
   hardware.graphics.enable = true;
 
-  # Apple ISO keyboards otherwise have the ` ~ key and the key beside left Shift
-  # swapped by the hid_apple driver.
-  boot.extraModprobeConfig = ''
-    options hid_apple iso_layout=0
-  '';
-
-  # Graphical login & KDE Plasma (Wayland)
+  # Headless: no display manager or console session. Plasma is installed only
+  # for the X11 session served over VNC by the user service in
+  # modules/home/nixos/desktop.nix (port 5900, opened in network.nix).
   services.xserver.xkb = {
     layout = "za";
     variant = "";
   };
-  services.displayManager.sddm = {
-    enable = true;
-    wayland.enable = true;
-  };
   services.desktopManager.plasma6.enable = true;
-  services.displayManager.defaultSession = "plasma";
-
-  # VNC for macOS Screen Sharing is a user service in modules/home/nixos/desktop.nix
-  # (port 5900, opened in network.nix).
 
   # KDE's native VNC/RDP client.
   environment.systemPackages = [ pkgs.kdePackages.krdc ];
-  services.displayManager.autoLogin = {
-    enable = true;
-    user = "kellan.stevens";
-  };
 
-  # Keep the display's idle blanking separate from system sleep.
+  # Never suspend: the machine runs headless as a server.
   systemd.sleep.settings.Sleep = {
     AllowSuspend = false;
     AllowHibernation = false;
