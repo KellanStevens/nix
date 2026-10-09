@@ -24,6 +24,7 @@
       "docker-credential-helper-ecr"
       "eza"
       "fastfetch"
+      "freerdp"
       "fzf"
       "gh"
       "git"
