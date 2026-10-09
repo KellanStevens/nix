@@ -28,6 +28,7 @@
     oh-my-posh
     fastfetch
     wget
+    jq
     nixfmt
     localsend
   ];
