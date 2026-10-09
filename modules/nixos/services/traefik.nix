@@ -60,6 +60,12 @@
             service = "hassio-service";
             tls = {};
           };
+          stremio = {
+            rule = "Host(`stremio.local.kellanstevens.com`)";
+            entryPoints = [ "websecure" ];
+            service = "stremio-service";
+            tls = {};
+          };
         };
 
         services = {
@@ -68,6 +74,15 @@
               servers = [
                 {
                   url = "http://127.0.0.1:8123";
+                }
+              ];
+            };
+          };
+          stremio-service = {
+            loadBalancer = {
+              servers = [
+                {
+                  url = "http://127.0.0.1:8080";
                 }
               ];
             };
