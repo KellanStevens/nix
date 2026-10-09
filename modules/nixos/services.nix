@@ -2,7 +2,6 @@
 
 {
   imports = [
-    ./services/avahi.nix
     ./services/home-assistant.nix
     ./services/nix-ld.nix
     ./services/ssh.nix

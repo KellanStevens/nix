@@ -20,4 +20,8 @@
       };
     };
   };
+
+  # Home Assistant runs its own mDNS (zeroconf) to discover and resolve ESPHome
+  # devices, so it needs the replies on UDP 5353.
+  networking.firewall.allowedUDPPorts = [ 5353 ];
 }
