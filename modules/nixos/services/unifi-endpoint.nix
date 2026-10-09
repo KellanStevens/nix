@@ -9,6 +9,9 @@ in
 {
   imports = [ "${pr}/nixos/modules/programs/unifi-endpoint.nix" ];
 
+  # Testing the module under AppArmor for the nixpkgs PR review.
+  security.apparmor.enable = true;
+
   programs.unifi-endpoint = {
     enable = true;
     package =
