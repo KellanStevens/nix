@@ -2,7 +2,8 @@
 
 {
   networking.networkmanager.enable = true;
-  networking.networkmanager.wifi.powersave = false;
+  # Wired only: keep NetworkManager off the Wi-Fi card so it never connects.
+  networking.networkmanager.unmanaged = [ "type:wifi" ];
 
   networking.nftables.enable = true;
 
