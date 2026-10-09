@@ -15,5 +15,6 @@
     sat="sail artisan test";
     pa = "php artisan";
     pint="sail pint";
+    rdp-nix = "sdl-freerdp /v:10.20.1.100 /u:kellan.stevens /dynamic-resolution /cert:tofu /from-stdin";
   };
 }
