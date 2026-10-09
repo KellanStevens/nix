@@ -6,30 +6,20 @@
     pkgs.github-desktop
   ];
 
-  # Headless Plasma X11 session served over VNC for macOS Screen Sharing
-  # (vnc://<host>:5900). The machine has no screen or console session, so this is
-  # the only desktop. Create the password once with:
-  #   mkdir -p ~/.vnc && vncpasswd -f > ~/.vnc/passwd && chmod 600 ~/.vnc/passwd
-  systemd.user.services.vnc-plasma = lib.mkIf pkgs.stdenv.hostPlatform.isLinux {
-    Unit = {
-      Description = "Plasma X11 session over VNC (TigerVNC)";
-      ConditionPathExists = "%h/.vnc/passwd";
+  # The headless GNOME session is served over RDP by gnome-remote-desktop (see
+  # modules/nixos/desktop.nix). Give it a TLS certificate and login once with:
+  #   mkdir -p ~/.local/share/gnome-remote-desktop && cd $_
+  #   nix shell nixpkgs#openssl -c openssl req -new -newkey rsa:4096 -days 3650 -nodes -x509 \
+  #     -subj "/CN=$(hostname)" -keyout rdp-tls.key -out rdp-tls.crt
+  #   grdctl --headless rdp set-tls-key ~/.local/share/gnome-remote-desktop/rdp-tls.key
+  #   grdctl --headless rdp set-tls-cert ~/.local/share/gnome-remote-desktop/rdp-tls.crt
+  #   grdctl --headless rdp set-credentials <username> <password>
+  #   grdctl --headless rdp disable-view-only
+  #   grdctl --headless rdp enable
+  # Start the RDP server with this user's GNOME session only, not the login
+  # screen's (the same link `systemctl --user enable` would make).
+  xdg.configFile."systemd/user/gnome-session.target.wants/gnome-remote-desktop-headless.service" =
+    lib.mkIf pkgs.stdenv.hostPlatform.isLinux {
+      source = "${pkgs.gnome-remote-desktop}/lib/systemd/user/gnome-remote-desktop-headless.service";
     };
-    Service = {
-      ExecStart = pkgs.writeShellScript "vnc-plasma" ''
-        export XDG_SESSION_TYPE=x11 XDG_CURRENT_DESKTOP=KDE KDE_FULL_SESSION=true
-        unset WAYLAND_DISPLAY DISPLAY
-        ${pkgs.tigervnc}/bin/Xvnc :10 -rfbport 5900 -rfbauth "$HOME/.vnc/passwd" \
-          -SecurityTypes VncAuth -geometry 1920x1200 -depth 24 -AlwaysShared &
-        xvnc=$!
-        trap 'kill $xvnc' EXIT
-        sleep 2
-        export DISPLAY=:10
-        ${pkgs.dbus}/bin/dbus-run-session ${pkgs.kdePackages.plasma-workspace}/bin/startplasma-x11
-      '';
-      Restart = "on-failure";
-      RestartSec = 5;
-    };
-    Install.WantedBy = [ "default.target" ];
-  };
 }
