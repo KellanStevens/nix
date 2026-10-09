@@ -12,7 +12,10 @@
         "8080:8080" # bundled web UI
       ];
       volumes = [ "/var/lib/stremio:/root/.stremio-server" ];
-      environment.NO_CORS = "1";
+      environment = {
+        NO_CORS = "1";
+        AUTO_SERVER_URL = "1";
+      };
     };
   };
 
