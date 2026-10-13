@@ -61,6 +61,9 @@
     pulse.enable = true;
   };
 
+  # Bluetooth
+  hardware.bluetooth.enable = true;
+
   # Printing
   services.printing.enable = true;
 }
