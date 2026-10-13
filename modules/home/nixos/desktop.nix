@@ -4,6 +4,7 @@
   home.packages = lib.mkIf pkgs.stdenv.hostPlatform.isLinux [
     pkgs.vscode
     pkgs.github-desktop
+    pkgs.t3code
   ];
 
   # The headless GNOME session is served over RDP by gnome-remote-desktop (see
