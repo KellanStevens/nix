@@ -1,10 +1,31 @@
 { lib, pkgs, ... }:
 
+let
+  # nixpkgs' t3code sets dontPatchELF and ships npm's generic-Linux prebuilt
+  # native modules untouched, so they can't find libstdc++ (or libxkbcommon)
+  # on NixOS. node-pty failing to load kills the backend and the window never
+  # opens. Drop once fixed upstream.
+  t3code = pkgs.t3code.override {
+    t3code-unwrapped = pkgs.t3code.unwrapped.overrideAttrs (old: {
+      postFixup = (old.postFixup or "") + ''
+        find "$out"/libexec/t3code/node_modules/.pnpm -name '*.node' -path '*linux-x64*' ! -name '*musl*' \
+          -exec patchelf --add-rpath ${
+            lib.makeLibraryPath [
+              pkgs.stdenv.cc.cc.lib
+              pkgs.libxkbcommon
+            ]
+          } {} \;
+      '';
+    });
+    # Same source either way; reuse the cached sidecar instead of rebuilding it.
+    t3code-resource-monitor = pkgs.t3code.resourceMonitor;
+  };
+in
 {
   home.packages = lib.mkIf pkgs.stdenv.hostPlatform.isLinux [
     pkgs.vscode
     pkgs.github-desktop
-    pkgs.t3code
+    t3code
   ];
 
   # The headless GNOME session is served over RDP by gnome-remote-desktop (see
