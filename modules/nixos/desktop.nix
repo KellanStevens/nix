@@ -48,6 +48,10 @@
     AllowSuspendThenHibernate = false;
   };
 
+  # GNOME's monospace font is set to Hack; without it terminals fall back to
+  # proportional DejaVu Sans and space every character out.
+  fonts.packages = [ pkgs.hack-font ];
+
   # Helium browser
   programs.helium.enable = true;
 
