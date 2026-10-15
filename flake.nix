@@ -15,9 +15,6 @@
     };
 
     helium.url = "github:oxcl/nix-flake-helium-browser";
-
-    # Testing the nixpkgs PR for UniFi Endpoint; drop once merged.
-    nixpkgs-unifi-endpoint.url = "github:KellanStevens/nixpkgs/unifi-endpoint";
   };
 
   outputs =
