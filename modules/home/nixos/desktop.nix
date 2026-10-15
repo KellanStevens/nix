@@ -28,6 +28,19 @@ in
     t3code
   ];
 
+  # GNOME only shows the dash in the overview; Dash to Dock keeps it on screen.
+  programs.gnome-shell = lib.mkIf pkgs.stdenv.hostPlatform.isLinux {
+    enable = true;
+    extensions = [ { package = pkgs.gnomeExtensions.dash-to-dock; } ];
+  };
+  dconf.settings."org/gnome/shell/extensions/dash-to-dock" =
+    lib.mkIf pkgs.stdenv.hostPlatform.isLinux {
+      # Always visible: never autohide or hide behind windows.
+      dock-fixed = true;
+      autohide = false;
+      intellihide = false;
+    };
+
   # The headless GNOME session is served over RDP by gnome-remote-desktop (see
   # modules/nixos/desktop.nix). Give it a TLS certificate and login once with:
   #   mkdir -p ~/.local/share/gnome-remote-desktop && cd $_
