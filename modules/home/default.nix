@@ -19,6 +19,7 @@
   home.packages = with pkgs; [
     claude-code
     git
+    gh
     vim
     tmux
     bat
