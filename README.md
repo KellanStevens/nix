@@ -1,7 +1,17 @@
 # How to install this Nix configuration
 
-This guide installs the `nixos` configuration on a NixOS computer or the
-`TL-FW21FX96ND` configuration on an Apple Silicon Mac.
+This guide installs the `nixos` configuration on a NixOS computer or one of
+the Apple Silicon Mac configurations:
+
+| Configuration    | Mac      | Host module              |
+| ---------------- | -------- | ------------------------ |
+| `TL-FW21FX96ND`  | Work     | `hosts/macos/work`       |
+| `kellan-macbook` | Personal | `hosts/macos/personal`   |
+
+Both Macs share `hosts/macos/common.nix`, `modules/macos/homebrew` and
+`modules/home`. Machine-specific apps go in `modules/macos/homebrew/work.nix`
+or `personal.nix`, and machine-specific aliases go in
+`modules/home/macos/work.nix` or `personal.nix`.
 
 ## Set up NixOS
 
@@ -98,14 +108,17 @@ gh repo clone KellanStevens/nix ~/nix
 cd ~/nix
 ```
 
-Move the existing system files aside before the first nix-darwin activation:
+Move the existing system files aside before the first nix-darwin activation.
+Skip any file that does not exist:
 
 ```sh
 sudo mv /etc/bashrc /etc/bashrc.before-nix-darwin
+sudo mv /etc/zshrc /etc/zshrc.before-nix-darwin
 sudo mv /etc/pam.d/sudo_local /etc/pam.d/sudo_local.before-nix-darwin
 ```
 
-Run the first activation:
+Run the first activation, replacing `TL-FW21FX96ND` with `kellan-macbook` on
+the personal Mac:
 
 ```sh
 sudo -H nix run github:nix-darwin/nix-darwin/nix-darwin-26.05#darwin-rebuild \
@@ -120,4 +133,5 @@ nix-rebuild
 
 > [!WARNING]
 > The macOS activation removes Homebrew formulae and casks that are not listed
-> in `modules/macos/homebrew`.
+> in `modules/macos/homebrew` (shared plus that Mac's `work.nix` or
+> `personal.nix`).

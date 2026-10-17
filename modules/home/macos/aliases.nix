@@ -1,20 +1,14 @@
-{ lib, pkgs, ... }:
+{
+  lib,
+  pkgs,
+  osConfig,
+  ...
+}:
 
 {
   home.shellAliases = lib.mkIf pkgs.stdenv.hostPlatform.isDarwin {
-    nix-rebuild = "sudo darwin-rebuild switch --flake ~/nix#TL-FW21FX96ND";
+    nix-rebuild = "sudo darwin-rebuild switch --flake ~/nix#${osConfig.networking.hostName}";
     brwup = "brew update -v && brew upgrade -v -g";
-    sail = "[ -f sail ] && sh sail || sh vendor/bin/sail";
-    docker = "AWS_PROFILE=internal-services /opt/homebrew/bin/docker";
-    static-analysis="export PHPSTAN_MAX_PROCESSES=8 composer phpstan && composer phpmd";
-    sp="export PHPSTAN_MAX_PROCESSES=8 composer phpstan && composer phpmd && sail pint";
-    aws-login="aws sso login --sso-session tillo-sso";
-    satcf="sail artisan test --compact --filter=";
-    satc="sail artisan test --compact";
-    satf="sail artisan test --filter=";
-    sat="sail artisan test";
-    pa = "php artisan";
-    pint="sail pint";
     rdp-nix = "sdl-freerdp /v:10.20.1.100 /u:kellan.stevens /dynamic-resolution /cert:tofu /from-stdin";
   };
 }

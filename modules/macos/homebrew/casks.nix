@@ -11,7 +11,6 @@
     "mac-mouse-fix"
     "maccy"
     "rectangle"
-    "tableplus"
     "zed"
   ];
 }
