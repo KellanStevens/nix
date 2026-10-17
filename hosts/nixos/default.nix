@@ -34,7 +34,10 @@
     ];
 
     openssh.authorizedKeys.keys = [
+      # Work Mac (TL-FW21FX96ND)
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICGaZl4aI8q4/LSdvABWVesFV1GVaPlWarq1Bl2KbwKl"
+      # Personal Mac (kellan-macbook)
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAID9cVMBQ/TjZvTGguxXMAcsyufKnaFDEJYXgWiqFwQpX"
     ];
   };
 
