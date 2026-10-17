@@ -29,7 +29,19 @@
         autohide-time-modifier = 0.0;
         mru-spaces = false;
         show-recents = false;
-        static-only = true;
+        # No pinned apps, so the dock only shows running apps. static-only
+        # would do the same but also hides the Downloads stack.
+        static-only = false;
+        persistent-apps = [ ];
+        persistent-others = [
+          {
+            folder = {
+              path = "/Users/kellan.stevens/Downloads";
+              arrangement = "date-added";
+              displayas = "stack";
+            };
+          }
+        ];
         tilesize = 74;
       };
 
