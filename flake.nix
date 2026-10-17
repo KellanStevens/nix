@@ -26,6 +26,30 @@
       helium,
       ...
     }@inputs:
+    let
+      # A Mac shares hosts/macos/common.nix and modules/home, plus its own
+      # host module and home module for machine-specific apps and aliases.
+      mkDarwin =
+        { host, home }:
+        darwin.lib.darwinSystem {
+          system = "aarch64-darwin";
+          specialArgs = { inherit inputs; };
+          modules = [
+            host
+            home-manager.darwinModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.backupFileExtension = "backup";
+              home-manager.extraSpecialArgs = { inherit inputs; };
+              home-manager.users."kellan.stevens".imports = [
+                ./modules/home
+                home
+              ];
+            }
+          ];
+        };
+    in
     {
       nixosConfigurations = {
         nixos = nixpkgs.lib.nixosSystem {
@@ -45,20 +69,14 @@
       };
 
       darwinConfigurations = {
-        "TL-FW21FX96ND" = darwin.lib.darwinSystem {
-          system = "aarch64-darwin";
-          specialArgs = { inherit inputs; };
-          modules = [
-            ./hosts/macos
-            home-manager.darwinModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.backupFileExtension = "backup";
-              home-manager.extraSpecialArgs = { inherit inputs; };
-              home-manager.users."kellan.stevens" = import ./modules/home;
-            }
-          ];
+        "TL-FW21FX96ND" = mkDarwin {
+          host = ./hosts/macos/work;
+          home = ./modules/home/macos/work.nix;
+        };
+
+        "kellan-macbook" = mkDarwin {
+          host = ./hosts/macos/personal;
+          home = ./modules/home/macos/personal.nix;
         };
       };
     };

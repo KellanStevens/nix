@@ -1,3 +1,5 @@
+# Shared nix-darwin settings for every Mac. Host-specific bits live in
+# hosts/macos/<host>/default.nix.
 { pkgs, ... }:
 
 {
@@ -5,8 +7,6 @@
     ../../modules/macos/homebrew
     ../../modules/tailscale.nix
   ];
-
-  networking.hostName = "TL-FW21FX96ND";
 
   nix.enable = false;
   nixpkgs = {
