@@ -19,6 +19,9 @@
   # Restart tailscaled whenever it exits, not just on failure.
   systemd.services.tailscaled.serviceConfig.Restart = "always";
 
+  # Terminfo for Ghostty so SSH sessions from the Macs (TERM=xterm-ghostty) work.
+  environment.systemPackages = [ pkgs.ghostty.terminfo ];
+
   # User account configuration
   users.users."kellan.stevens" = {
     isNormalUser = true;
