@@ -31,6 +31,7 @@
     wget
     jq
     nixfmt
+    nil
     localsend
   ];
 
