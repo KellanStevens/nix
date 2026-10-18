@@ -60,6 +60,18 @@
       };
 
       menuExtraClock.ShowSeconds = true;
+
+      # Menu bar items besides the clock and Control Center. Wi-Fi has no
+      # option here and is shown by default.
+      controlcenter = {
+        Bluetooth = true;
+        Sound = true;
+        BatteryShowPercentage = true;
+        AirDrop = false;
+        Display = false;
+        FocusModes = false;
+        NowPlaying = false;
+      };
     };
   };
 
