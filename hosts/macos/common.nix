@@ -5,7 +5,6 @@
 {
   imports = [
     ../../modules/macos/homebrew
-    ../../modules/tailscale.nix
   ];
 
   nix.enable = false;
