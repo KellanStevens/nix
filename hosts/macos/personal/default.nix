@@ -7,5 +7,5 @@
     ../../../modules/macos/homebrew/personal.nix
   ];
 
-  networking.hostName = "kellan-macbook";
+  networking.hostName = "macbook-pro";
 }

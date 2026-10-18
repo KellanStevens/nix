@@ -74,7 +74,7 @@
           home = ./modules/home/macos/work.nix;
         };
 
-        "kellan-macbook" = mkDarwin {
+        "macbook-pro" = mkDarwin {
           host = ./hosts/macos/personal;
           home = ./modules/home/macos/personal.nix;
         };
