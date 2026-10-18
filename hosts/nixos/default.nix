@@ -16,6 +16,9 @@
   # Hostname
   networking.hostName = "nixos";
 
+  # Restart tailscaled whenever it exits, not just on failure.
+  systemd.services.tailscaled.serviceConfig.Restart = "always";
+
   # User account configuration
   users.users."kellan.stevens" = {
     isNormalUser = true;
