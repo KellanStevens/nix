@@ -6,7 +6,7 @@ the Apple Silicon Mac configurations:
 | Configuration    | Mac      | Host module              |
 | ---------------- | -------- | ------------------------ |
 | `TL-FW21FX96ND`  | Work     | `hosts/macos/work`       |
-| `kellan-macbook` | Personal | `hosts/macos/personal`   |
+| `macbook-pro`    | Personal | `hosts/macos/personal`   |
 
 Both Macs share `hosts/macos/common.nix`, `modules/macos/homebrew` and
 `modules/home`. Machine-specific apps go in `modules/macos/homebrew/work.nix`
@@ -117,7 +117,7 @@ sudo mv /etc/zshrc /etc/zshrc.before-nix-darwin
 sudo mv /etc/pam.d/sudo_local /etc/pam.d/sudo_local.before-nix-darwin
 ```
 
-Run the first activation, replacing `TL-FW21FX96ND` with `kellan-macbook` on
+Run the first activation, replacing `TL-FW21FX96ND` with `macbook-pro` on
 the personal Mac:
 
 ```sh
