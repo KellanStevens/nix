@@ -21,6 +21,7 @@
       "rust"
       "tmux"
       "zoxide"
+      "lazygit"
     ];
   };
 }
