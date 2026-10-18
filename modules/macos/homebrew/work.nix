@@ -33,6 +33,7 @@
     ];
 
     casks = [
+      "cmux"
       "tableplus"
     ];
   };
