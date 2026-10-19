@@ -10,6 +10,7 @@
     casks = [
       "claude"
       "t3-code"
+      "signal"
     ];
   };
 }
