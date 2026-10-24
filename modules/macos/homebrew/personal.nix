@@ -10,7 +10,7 @@
     casks = [
       "claude"
       "prismlauncher"
-      "t3-code"
+      "t3-code@nightly"
       "signal"
     ];
   };
