@@ -9,6 +9,7 @@
 
     casks = [
       "claude"
+      "prismlauncher"
       "t3-code"
       "signal"
     ];
