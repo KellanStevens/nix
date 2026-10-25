@@ -26,6 +26,7 @@ in
       "esphome"
       "homekit"
       "homekit_controller"
+      "matter"
     ];
     customComponents = [ hacs ];
     extraPackages = ps: [ ps.paho-mqtt ];
@@ -41,6 +42,8 @@ in
       };
     };
   };
+
+  services.matter-server.enable = true;
 
   # Home Assistant runs its own mDNS (zeroconf) to discover and resolve ESPHome
   # devices, so it needs the replies on UDP 5353.
