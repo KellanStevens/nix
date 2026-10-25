@@ -1,5 +1,22 @@
-{ ... }:
+{ pkgs, ... }:
 
+let
+  # nixpkgs doesn't package HACS. The release zip ships the prebuilt frontend,
+  # which the git source lacks.
+  hacs = pkgs.buildHomeAssistantComponent rec {
+    owner = "hacs";
+    domain = "hacs";
+    version = "2.0.5";
+
+    src = pkgs.fetchzip {
+      url = "https://github.com/hacs/integration/releases/download/${version}/hacs.zip";
+      stripRoot = false;
+      hash = "sha256-iMomioxH7Iydy+bzJDbZxt6BX31UkCvqhXrxYFQV8Gw=";
+    };
+
+    dependencies = [ pkgs.home-assistant.python3Packages.aiogithubapi ];
+  };
+in
 {
   services.home-assistant = {
     enable = true;
@@ -10,6 +27,7 @@
       "homekit"
       "homekit_controller"
     ];
+    customComponents = [ hacs ];
     extraPackages = ps: [ ps.paho-mqtt ];
     config = {
       default_config = {};
