@@ -7,6 +7,8 @@
       "default_config"
       "met"
       "esphome"
+      "homekit"
+      "homekit_controller"
     ];
     config = {
       default_config = {};
@@ -24,4 +26,7 @@
   # Home Assistant runs its own mDNS (zeroconf) to discover and resolve ESPHome
   # devices, so it needs the replies on UDP 5353.
   networking.firewall.allowedUDPPorts = [ 5353 ];
+
+  # The HomeKit Bridge serves HAP to Apple devices on this port by default.
+  networking.firewall.allowedTCPPorts = [ 21064 ];
 }
