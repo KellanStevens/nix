@@ -10,6 +10,7 @@
       "homekit"
       "homekit_controller"
     ];
+    extraPackages = ps: [ ps.paho-mqtt ];
     config = {
       default_config = {};
       http = {
