@@ -21,24 +21,6 @@
         "type": "github"
       }
     },
-    "helium": {
-      "inputs": {
-        "nixpkgs": "nixpkgs"
-      },
-      "locked": {
-        "lastModified": 1793285847,
-        "narHash": "sha256-yy/fjT0bPM7Qi1q1Y+xov+Igd2AxvtgJFBzJ/PI/cFE=",
-        "owner": "oxcl",
-        "repo": "nix-flake-helium-browser",
-        "rev": "c9f74b5dd1dabf2d6a6c5c5a0c6fa1d9af7ddf73",
-        "type": "github"
-      },
-      "original": {
-        "owner": "oxcl",
-        "repo": "nix-flake-helium-browser",
-        "type": "github"
-      }
-    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -62,22 +44,6 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1777578337,
-        "narHash": "sha256-Ad49moKWeXtKBJNy2ebiTQUEgdLyvGmTeykAQ9xM+Z4=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "15f4ee454b1dce334612fa6843b3e05cf546efab",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "nixos-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs_2": {
-      "locked": {
         "lastModified": 1793345420,
         "narHash": "sha256-e/yiZ31gXRROBDcnOtT3YwDQ73NVG9Cepccbt86LIn8=",
         "owner": "nixos",
@@ -95,9 +61,8 @@
     "root": {
       "inputs": {
         "darwin": "darwin",
-        "helium": "helium",
         "home-manager": "home-manager",
-        "nixpkgs": "nixpkgs_2"
+        "nixpkgs": "nixpkgs"
       }
     }
   },

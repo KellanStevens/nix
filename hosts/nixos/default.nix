@@ -16,6 +16,14 @@
   # Hostname
   networking.hostName = "nixos";
 
+  # Never suspend: the machine runs headless as a server.
+  systemd.sleep.settings.Sleep = {
+    AllowSuspend = false;
+    AllowHibernation = false;
+    AllowHybridSleep = false;
+    AllowSuspendThenHibernate = false;
+  };
+
   # Restart tailscaled whenever it exits, not just on failure.
   systemd.services.tailscaled.serviceConfig.Restart = "always";
 

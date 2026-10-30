@@ -13,8 +13,6 @@
       url = "github:nix-darwin/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    helium.url = "github:oxcl/nix-flake-helium-browser";
   };
 
   outputs =
@@ -23,7 +21,6 @@
       nixpkgs,
       home-manager,
       darwin,
-      helium,
       ...
     }@inputs:
     let
