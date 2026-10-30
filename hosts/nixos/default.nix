@@ -30,7 +30,6 @@
   environment.systemPackages = [
     # Terminfo for Ghostty so SSH sessions from the Macs (TERM=xterm-ghostty) work.
     pkgs.ghostty.terminfo
-    # Node.js, for npx.
     pkgs.nodejs
     pkgs.python3
     pkgs.uv
