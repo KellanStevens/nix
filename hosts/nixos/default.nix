@@ -16,14 +16,43 @@
   # Hostname
   networking.hostName = "nixos";
 
+  # Never suspend: the machine runs headless as a server.
+  systemd.sleep.settings.Sleep = {
+    AllowSuspend = false;
+    AllowHibernation = false;
+    AllowHybridSleep = false;
+    AllowSuspendThenHibernate = false;
+  };
+
   # Restart tailscaled whenever it exits, not just on failure.
   systemd.services.tailscaled.serviceConfig.Restart = "always";
 
   environment.systemPackages = [
     # Terminfo for Ghostty so SSH sessions from the Macs (TERM=xterm-ghostty) work.
     pkgs.ghostty.terminfo
-    # Node.js, for npx.
     pkgs.nodejs
+    pkgs.python3
+    pkgs.uv
+    pkgs.ripgrep
+    pkgs.fd
+    pkgs.yq-go
+    pkgs.tree
+    pkgs.curl
+    pkgs.unzip
+    pkgs.zip
+    pkgs.gnumake
+    pkgs.gcc
+    pkgs.htop
+    pkgs.file
+    pkgs.diffutils
+    pkgs.patch
+    pkgs.gnused
+    pkgs.gawk
+    pkgs.gnutar
+    pkgs.gzip
+    pkgs.findutils
+    pkgs.which
+    pkgs.shellcheck
   ];
 
   # User account configuration

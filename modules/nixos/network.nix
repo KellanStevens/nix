@@ -13,11 +13,12 @@
       80
       443
       81
-      53317 # LocalSend
+      53317
     ];
     allowedUDPPorts = [
-      53317 # LocalSend discovery
+      53317
     ];
+    interfaces.eno2.allowedTCPPorts = [ 3773 ];
   };
 
   # Disable power saving sleep states for server operation
