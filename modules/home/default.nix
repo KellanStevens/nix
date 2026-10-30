@@ -6,7 +6,6 @@
     ./macos/aliases.nix
     ./macos/zsh.nix
     ./nixos/aliases.nix
-    ./nixos/desktop.nix
     ./nixos/git.nix
     ./oh-my-posh.nix
   ];
