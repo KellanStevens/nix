@@ -53,6 +53,7 @@
     pkgs.findutils
     pkgs.which
     pkgs.shellcheck
+    pkgs.codex
   ];
 
   # User account configuration
