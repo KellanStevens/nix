@@ -24,6 +24,9 @@
     AllowSuspendThenHibernate = false;
   };
 
+  # Apply powertop's auto-tuning (runtime PM, etc.) at boot to cut idle power draw.
+  powerManagement.powertop.enable = true;
+
   # Restart tailscaled whenever it exits, not just on failure.
   systemd.services.tailscaled.serviceConfig.Restart = "always";
 
