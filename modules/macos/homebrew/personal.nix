@@ -10,6 +10,7 @@
     casks = [
       "claude"
       "codex"
+      "firefox"
       "prismlauncher"
       "t3-code@nightly"
       "signal"
