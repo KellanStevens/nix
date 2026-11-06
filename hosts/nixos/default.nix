@@ -54,6 +54,7 @@
     pkgs.which
     pkgs.shellcheck
     pkgs.codex
+    pkgs.firefox
   ];
 
   # User account configuration
