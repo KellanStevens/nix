@@ -1,6 +1,11 @@
 { ... }:
 
 {
+  networking.firewall.allowedTCPPorts = [
+    80
+    443
+  ];
+
   # Ensure state directory exists for ACME certificate storage (/var/lib/traefik/acme.json)
   systemd.services.traefik.serviceConfig.StateDirectory = "traefik";
 

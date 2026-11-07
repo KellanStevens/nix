@@ -46,14 +46,16 @@
             }
           ];
         };
-    in
-    {
-      nixosConfigurations = {
-        nixos = nixpkgs.lib.nixosSystem {
+
+      # Every NixOS host shares modules/home; the host module (imported via
+      # hosts/<name>) picks which system modules apply.
+      mkNixos =
+        host:
+        nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           specialArgs = { inherit inputs; };
           modules = [
-            ./hosts/nixos
+            host
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
@@ -63,6 +65,11 @@
             }
           ];
         };
+    in
+    {
+      nixosConfigurations = {
+        nixos = mkNixos ./hosts/nixos;
+        nixos-dell = mkNixos ./hosts/nixos-dell;
       };
 
       darwinConfigurations = {
