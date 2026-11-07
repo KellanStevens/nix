@@ -6,5 +6,5 @@
     ../../modules/nixos/base.nix
   ];
 
-  networking.hostName = "nixos-dell";
+  networking.hostName = "slim";
 }

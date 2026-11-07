@@ -1,7 +1,7 @@
 { ... }:
 
 {
-  # Services that only run on the home server (hosts/nixos).
+  # Services that only run on the home server (hosts/domkop).
   imports = [
     ./services/home-assistant.nix
     ./services/stremio.nix
