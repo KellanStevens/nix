@@ -5,13 +5,13 @@ Apple Silicon Mac configurations:
 
 | Configuration    | Machine                 | Host module              |
 | ---------------- | ----------------------- | ------------------------ |
-| `nixos`          | Home server (headless)  | `hosts/nixos`            |
-| `nixos-dell`     | Dell                    | `hosts/nixos-dell`       |
+| `domkop`         | Asus mini PC (headless) | `hosts/domkop`           |
+| `slim`           | Dell Vostro             | `hosts/slim`             |
 | `TL-FW21FX96ND`  | Work Mac                | `hosts/macos/work`       |
 | `macbook-pro`    | Personal Mac            | `hosts/macos/personal`   |
 
 Both NixOS hosts share `modules/nixos/base.nix`. Home Assistant, Stremio,
-Traefik and UniFi live in `modules/nixos/homelab.nix`, which only `nixos`
+Traefik and UniFi live in `modules/nixos/homelab.nix`, which only `domkop`
 imports.
 
 Both Macs share `hosts/macos/common.nix`, `modules/macos/homebrew` and
@@ -52,13 +52,13 @@ for the new computer:
 
 ```sh
 sudo cp /mnt/etc/nixos/hardware-configuration.nix \
-  /mnt/home/kellan.stevens/nix/hosts/nixos/hardware-configuration.nix
+  /mnt/home/kellan.stevens/nix/hosts/domkop/hardware-configuration.nix
 ```
 
 Install NixOS:
 
 ```sh
-sudo nixos-install --flake /mnt/home/kellan.stevens/nix#nixos
+sudo nixos-install --flake /mnt/home/kellan.stevens/nix#domkop
 ```
 
 Set the password for the configured user and correct the repository ownership:

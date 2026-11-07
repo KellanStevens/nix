@@ -68,8 +68,8 @@
     in
     {
       nixosConfigurations = {
-        nixos = mkNixos ./hosts/nixos;
-        nixos-dell = mkNixos ./hosts/nixos-dell;
+        domkop = mkNixos ./hosts/domkop;
+        slim = mkNixos ./hosts/slim;
       };
 
       darwinConfigurations = {
