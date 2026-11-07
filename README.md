@@ -1,12 +1,18 @@
 # How to install this Nix configuration
 
-This guide installs the `nixos` configuration on a NixOS computer or one of
-the Apple Silicon Mac configurations:
+This guide installs a NixOS configuration on a NixOS computer or one of the
+Apple Silicon Mac configurations:
 
-| Configuration    | Mac      | Host module              |
-| ---------------- | -------- | ------------------------ |
-| `TL-FW21FX96ND`  | Work     | `hosts/macos/work`       |
-| `macbook-pro`    | Personal | `hosts/macos/personal`   |
+| Configuration    | Machine                 | Host module              |
+| ---------------- | ----------------------- | ------------------------ |
+| `nixos`          | Home server (headless)  | `hosts/nixos`            |
+| `nixos-dell`     | Dell                    | `hosts/nixos-dell`       |
+| `TL-FW21FX96ND`  | Work Mac                | `hosts/macos/work`       |
+| `macbook-pro`    | Personal Mac            | `hosts/macos/personal`   |
+
+Both NixOS hosts share `modules/nixos/base.nix`. Home Assistant, Stremio,
+Traefik and UniFi live in `modules/nixos/homelab.nix`, which only `nixos`
+imports.
 
 Both Macs share `hosts/macos/common.nix`, `modules/macos/homebrew` and
 `modules/home`. Machine-specific apps go in `modules/macos/homebrew/work.nix`

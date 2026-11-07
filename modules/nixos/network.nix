@@ -2,23 +2,17 @@
 
 {
   networking.networkmanager.enable = true;
-  # Wired only: keep NetworkManager off the Wi-Fi card so it never connects.
-  networking.networkmanager.unmanaged = [ "type:wifi" ];
-
   networking.nftables.enable = true;
 
   networking.firewall = {
     enable = true;
     allowedTCPPorts = [
-      80
-      443
       81
       53317
     ];
     allowedUDPPorts = [
       53317
     ];
-    interfaces.eno2.allowedTCPPorts = [ 3773 ];
   };
 
   # Disable power saving sleep states for server operation
