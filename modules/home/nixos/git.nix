@@ -18,6 +18,7 @@
       allowedSigners = ''
         github@kellanstevens.com namespaces="git" ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHYA24+yEPHUEkXh8fK7jOiKj+sRo6ade6urvfMZojz7 nixos
         github@kellanstevens.com namespaces="git" ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICGaZl4aI8q4/LSdvABWVesFV1GVaPlWarq1Bl2KbwKl mac
+        github@kellanstevens.com namespaces="git" ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPMdUlasTG2SN4SMx/dZ8GpcHxu8a5VuKmpTpzoVDTxH slim
       '';
     };
   };
