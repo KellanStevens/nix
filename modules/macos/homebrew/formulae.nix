@@ -8,7 +8,7 @@
 
     brews = [
       "bat"
-      "bpytop"
+      "btop"
       "eza"
       "fastfetch"
       "fzf"

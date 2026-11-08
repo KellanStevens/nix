@@ -42,6 +42,7 @@
     pkgs.gnumake
     pkgs.gcc
     pkgs.htop
+    pkgs.btop
     pkgs.file
     pkgs.diffutils
     pkgs.patch
