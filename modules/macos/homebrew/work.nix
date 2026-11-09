@@ -5,6 +5,7 @@
   homebrew = {
     taps = [
       "atlassian/acli"
+      "datadog-labs/pack"
       "hashicorp/tap"
       "oven-sh/bun"
     ];
@@ -27,7 +28,7 @@
       "mysql@8.4"
       "oven-sh/bun/bun"
       "php@8.2"
-      "pup"
+      "datadog-labs/pack/pup"
       "rabbitmq-c"
       "volta"
     ];
