@@ -5,6 +5,7 @@ let
   subnet = "10.20.1.0/24";
   address = "10.20.1.2";
   lan = "10.0.0.0/24";
+  gateway = "10.0.0.1";
   backend = "10.88.0.1";
 
   ports = [
@@ -34,7 +35,8 @@ let
   start = pkgs.writeText "lan-proxy-start.sh" ''
     set -eu
     dev=$(ip -o -4 addr show | awk '$4 == "${address}/24" { print $2 }')
-    ip route replace ${lan} dev "$dev" src ${address}
+    ip route replace ${gateway} dev "$dev" src ${address}
+    ip route replace ${lan} via ${gateway} dev "$dev" src ${address}
     exec nginx -c /etc/nginx/nginx.conf -g 'daemon off;'
   '';
 in
@@ -55,7 +57,7 @@ in
       podman network exists lan-proxy || podman network create \
         --driver macvlan \
         --opt parent=${parent} \
-        --opt no_default_route=1 \
+        --opt no_default_route=true \
         --subnet ${subnet} \
         lan-proxy
     '';
