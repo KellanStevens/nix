@@ -7,5 +7,6 @@
     ./services/stremio.nix
     ./services/traefik.nix
     ./services/unifi-endpoint.nix
+    ./services/lan-proxy.nix
   ];
 }
