@@ -1,6 +1,10 @@
 { pkgs, ... }:
 
 let
+  # The LAN-facing interface. HomeKit and mDNS are link-local protocols, so
+  # their ports are opened here only, not on tailscale0 or podman0.
+  lan = "eno2";
+
   # nixpkgs doesn't package HACS. The release zip ships the prebuilt frontend,
   # which the git source lacks.
   hacs = pkgs.buildHomeAssistantComponent rec {
@@ -33,6 +37,11 @@ in
     config = {
       default_config = {};
       http = {
+        # Only Traefik talks to this port, over loopback.
+        server_host = [
+          "127.0.0.1"
+          "::1"
+        ];
         server_port = 8123;
         use_x_forwarded_for = true;
         trusted_proxies = [
@@ -45,14 +54,16 @@ in
 
   services.matter-server.enable = true;
 
-  # Home Assistant runs its own mDNS (zeroconf) to discover and resolve ESPHome
-  # devices, so it needs the replies on UDP 5353.
-  networking.firewall.allowedUDPPorts = [ 5353 ];
+  networking.firewall.interfaces.${lan} = {
+    # Home Assistant runs its own mDNS (zeroconf) to discover and resolve
+    # ESPHome devices, so it needs the replies on UDP 5353.
+    allowedUDPPorts = [ 5353 ];
 
-  # Each HomeKit Bridge entry serves HAP to Apple devices on its own port,
-  # allocated upwards from 21064.
-  networking.firewall.allowedTCPPorts = [
-    21064
-    21065
-  ];
+    # Each HomeKit Bridge entry serves HAP to Apple devices on its own port,
+    # allocated upwards from 21064.
+    allowedTCPPorts = [
+      21064
+      21065
+    ];
+  };
 }

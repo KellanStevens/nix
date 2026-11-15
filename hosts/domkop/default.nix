@@ -9,6 +9,12 @@
 
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
+  # Keep the ESP (and the systemd-boot random seed on it) root-only.
+  fileSystems."/boot/efi".options = [
+    "fmask=0077"
+    "dmask=0077"
+  ];
+
   networking.hostName = "domkop";
 
   # Wired only: keep NetworkManager off the Wi-Fi card so it never connects.

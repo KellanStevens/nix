@@ -6,13 +6,8 @@
 
   networking.firewall = {
     enable = true;
-    allowedTCPPorts = [
-      81
-      53317
-    ];
-    allowedUDPPorts = [
-      53317
-    ];
+    allowedTCPPorts = [ 53317 ];
+    allowedUDPPorts = [ 53317 ];
   };
 
   # Disable power saving sleep states for server operation

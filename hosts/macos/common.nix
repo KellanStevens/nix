@@ -17,11 +17,27 @@
 
   security.pam.services.sudo_local.touchIdAuth = true;
 
+  # Block unsolicited inbound connections. Signed apps (LocalSend, Homebrew
+  # daemons) are still allowed to listen.
+  networking.applicationFirewall = {
+    enable = true;
+    enableStealthMode = true;
+    allowSigned = true;
+    allowSignedApp = true;
+  };
+
   system = {
     primaryUser = "kellan.stevens";
     stateVersion = 7;
 
     defaults = {
+      loginwindow.GuestEnabled = false;
+
+      screensaver = {
+        askForPassword = true;
+        askForPasswordDelay = 0;
+      };
+
       dock = {
         autohide = true;
         autohide-delay = 0.0;

@@ -66,7 +66,9 @@ in
   virtualisation.oci-containers = {
     backend = "podman";
     containers.lan-proxy = {
-      image = "docker.io/library/nginx:stable-alpine";
+      # nginx:stable-alpine, pinned by digest. Bump with:
+      # skopeo inspect docker://docker.io/library/nginx:stable-alpine
+      image = "docker.io/library/nginx@sha256:901e593c95dc85f5a729f5765516321366ef4ac401821431d408897e95287d0a";
       networks = [
         "podman"
         "lan-proxy:ip=${address}"
